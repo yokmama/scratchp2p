@@ -1,3 +1,10 @@
+Scratch P2P
+====
+
+![scratch2](https://github.com/yokmama/scratchp2p/blob/develop/scratch_sample/editimage.jpg)
+
+概要
+
 これはScratchでP2P通信によって二人で対戦をするゲームです。
 実行するには、Scratch 2 Offlineでないといけません。
 
@@ -6,8 +13,8 @@
 
 Node.jsのサーバーアプリは本プロジェクトです。
 
-サーバーの実行
-npm start
+#サーバーの実行
+$ npm start
 
 次に下記のURLへアクセスしてください
 http://localhost:12345/
@@ -18,6 +25,7 @@ ServerかClientかを選択するページが表示されます。
 上記画面で、ホスト側はServerを選択してください。
 クライアント側はClientを選択し、ホストのIPアドレスあるいはホスト名を入力してください。
 
+#クライアント実行
 次に、クライアントアプリですが、本プロジェクトの動作確認のため、ホッケーゲームを準備しました。
 http://localhost:12345/scratch_sampleの下に
 hockey.sb2というファイルがあります。これがScratch2のファイルです。
@@ -25,11 +33,11 @@ hockey.sb2というファイルがあります。これがScratch2のファイ�
 
 お互いに実行し、ホスト側でStartをするとゲームが開始です。
 
-操作説明
+##操作説明
 カーソルキー　移動
 Cボタン　色を変更
 
-勝利判定
+##勝利判定
 ボールを５回相手のゴール（ホスト側は左、クライアント側は右）
 にいれると勝利です。
 
@@ -40,12 +48,12 @@ Cボタンで　色を変更
 正常につながっていればお互いの画面に相手のキャラが動き出します。
 
 
-#
+###
 hockey.s2eは本ゲームの通信のプロトコルの定義書です。
 counter, connection, hostは本サーバー内部で設定しているデータなので固定ですが、
 それ以外はゲーム側で定義されたものです。
 
-[hockey.s2e]
+###hockey.s2e
 { "extensionName": "p2p",
  "extensionPort": 12345,
  "blockSpecs": [
