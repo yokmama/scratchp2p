@@ -23,7 +23,13 @@ app.set('port', port);
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 io.on('connection', function (socket) {
-  console.log("client connection")
+  var address = String(socket.handshake.address);
+
+  console.log("client connection :"+address);
+  if(address != "127.0.0.1" && address != "localhost")
+    exports.connection = true;
+  console.log("connection status :"+exports.connection);
+
   socket.on('message', function(data) {
     var json = JSON.parse(data);
     json.time = Date.now();
@@ -40,9 +46,12 @@ io.on('connection', function (socket) {
   });
   socket.on('disconnect', function() {
     console.log("client disconnected")
+    if(address != "127.0.0.1" && address != "localhost")
+      exports.connection = false;
   });
 });
 exports.server = server;
+exports.connection = false;
 
 /**
  * Listen on provided port, on all network interfaces.

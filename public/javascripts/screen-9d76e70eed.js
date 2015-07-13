@@ -1,5 +1,5 @@
 $(function(){
-  $("#serverType").val(selectType);
+  $("#selectType").val(selectType);
   updateView();
   })
 
