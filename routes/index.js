@@ -33,6 +33,7 @@ router.post('/config', function(req, res, next) {
 
   }else if(selectType == "client"){
     socket = client.connect('http://'+serverAddress+":12345");
+    require('../bin/www').connection = true;
   }else{
     if(socket!=null){
       socket.close();
