@@ -21,18 +21,19 @@ router.get('/', function(req, res, next) {
 
 router.post('/config', function(req, res, next) {
   console.log("in config");
-  serverType = req.body.serverType;
+  selectType = req.body.selectType;
   serverAddress = req.body.serverAddress;
   serverRunning = true;
-  console.log(serverType);
+  console.log(selectType);
   console.log(serverAddress);
   console.log(serverRunning);
 
-  if(serverType == "server"){
+  if(selectType == "server"){
     socket = client.connect('http://localhost:12345');
 
-  }else if(serverType == "client"){
+  }else if(selectType == "client"){
     socket = client.connect('http://'+serverAddress+":12345");
+    require('../bin/www').connection = true;
   }else{
     if(socket!=null){
       socket.close();
@@ -92,12 +93,16 @@ router.get('/*', function(req, res, next) {
 
 function poll(res){
   var str = "";
+  var connection = require('../bin/www').connection;
   for (var key in values) {
     str += key + " " + values[key] + "\n";
     if(typeof values[key] == "boolean"){
       values[key] = false;
     }
   }
+
+  str += "connection " + connection + "\n"
+  str += "host " + (selectType == "server")+ "\n"
   str += "counter "+updateCounter+"\r\n";
 
   //console.log("poll:"+str);
