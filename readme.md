@@ -42,8 +42,11 @@ hockey.sb2というファイルがあります。これがScratch2のファイ�
 
 お互いに実行し、ホスト側でStartをするとゲームが開始です。
 
+![client](https://github.com/yokmama/scratchp2p/blob/develop/scratch_sample/client.jpg)
+
 ###操作説明
 カーソルキー　移動
+
 Cボタン　色を変更
 
 ###勝利判定
