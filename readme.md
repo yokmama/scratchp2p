@@ -22,6 +22,7 @@ Node.jsのサーバーアプリは本プロジェクトです。
 
 http://localhost:12345/
 
+![server](https://github.com/yokmama/scratchp2p/blob/develop/scratch_sample/server.jpg)
 ServerかClientかを選択するページが表示されます。
 
 これをホスト側のPC、クライアント側のPCでそれぞれ実行してください。
